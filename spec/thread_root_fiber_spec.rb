@@ -2,15 +2,17 @@ require 'spec_helper'
 
 describe Thread do
   describe "#root_fiber" do
-    context "when send to a created thread" do
-      it "is the root fiber of the thread" do
-        thread = Thread.new{ Fiber.current }
-        expect(thread.root_fiber).to be thread.value
-      end
+    %i(new start fork).each do |creator|
+      context "when send to a thread created with .#{creator}" do
+        it "is the root fiber of the thread" do
+          thread = Thread.__send__(creator) { Fiber.current }
+          expect(thread.root_fiber).to be thread.value
+        end
 
-      it "is not another fiber in the thread" do
-        thread = Thread.new{ Fiber.new{ Fiber.current }.resume }
-        expect(thread.root_fiber).not_to be thread.value
+        it "is not another fiber in the thread" do
+          thread = Thread.__send__(creator) { Fiber.new{ Fiber.current }.resume }
+          expect(thread.root_fiber).not_to be thread.value
+        end
       end
     end
 
