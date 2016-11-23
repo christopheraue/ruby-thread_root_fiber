@@ -1,3 +1,5 @@
+Thread.main.instance_eval{ @root_fiber = Fiber.current }
+
 class << Thread
   alias_method :__new_not_setting_root_fiber__, :new
 
