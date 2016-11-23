@@ -10,7 +10,13 @@ Gem::Specification.new do |spec|
   spec.email         = ["mail@christopheraue.net"]
 
   spec.summary       = %q{Adds Thread#root_fiber, Fiber.root and Fiber#root?}
-  spec.description   = spec.summary
+  spec.description   = <<-DESC
+Ruby's threads have no access to their root fibers. This little gem adds:
+
+- Thread#root_fiber
+- Fiber.root
+- Fiber#root? (also aliased as #root_fiber?)
+  DESC
   spec.homepage      = "https://github.com/christopheraue/ruby-thread_root_fiber"
   spec.license       = "MIT"
 
