@@ -1,5 +1,6 @@
-require "thread_root_fiber/version"
+require 'fiber'
 
-module ThreadRootFiber
-  # Your code goes here...
-end
+require "thread_root_fiber/version"
+require "thread_root_fiber/thread"
+require "thread_root_fiber/fiber"
+
