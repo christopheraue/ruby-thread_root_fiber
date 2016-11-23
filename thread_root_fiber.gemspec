@@ -12,10 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Adds Thread#root_fiber, Fiber.root and Fiber#root?}
   spec.description   = <<-DESC
 Ruby's threads have no access to their root fibers. This little gem adds:
-
-- Thread#root_fiber
-- Fiber.root
-- Fiber#root? (also aliased as #root_fiber?)
+Thread#root_fiber, Fiber.root and Fiber#root? (also aliased as #root_fiber?).
   DESC
   spec.homepage      = "https://github.com/christopheraue/ruby-thread_root_fiber"
   spec.license       = "MIT"
@@ -25,7 +22,5 @@ Ruby's threads have no access to their root fibers. This little gem adds:
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.12"
-  spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 end
