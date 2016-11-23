@@ -4,7 +4,7 @@ class << Thread
   %i(new start fork).each do |creator|
     alias_method :"__#{creator}_not_setting_root_fiber__", creator
 
-    eval <<-CODE, __File__, __LINE__+1
+    eval <<-CODE, nil, __FILE__, __LINE__+1
       def #{creator}(*create_args)
         current_thread = Thread.current
         thread = __#{creator}_not_setting_root_fiber__(*create_args) do |*args|
